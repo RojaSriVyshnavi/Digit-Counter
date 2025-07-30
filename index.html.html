@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COUNTING DISPLAY</title>
+  <style>
+    body {
+      background-color: #048DF8;
+      color: black;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    #cloud-container {
+      background-color: #71E648;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
+      padding: 20px;
+      position: relative;
+      text-align: center;
+    }
+
+    #cloud-container:before,
+    #cloud-container:after {
+      position: absolute;
+      background-color: #2C3E50;
+      border-radius: 30%;
+    }
+
+    #cloud-container:before {
+      width: 30px;
+      height: 30px;
+      top: -15px;
+      left: 20px;
+    }
+
+    #cloud-container:after {
+      width: 40px;
+      height: 40px;
+      top: -10px;
+      right: 10px;
+    }
+
+    h1 {
+      color: rgb(255, 255, 255);
+      text-align: center;
+    }
+
+    label {
+      font-size: 20px;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    input {
+      font-size: 16px;
+      padding: 8px;
+      width: 100%;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #E74C3C;
+      color: white;
+      padding: 20px;
+      font-size: 18px;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 12px;
+      transition-duration: 0.4s;
+    }
+
+    button:hover {
+      background-color: #C0392B;
+    }
+
+    #result-container {
+      margin-top: 20px;
+    }
+
+    #digit-count-label {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    #digit-count-value {
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cloud-container">
+    <h1>COUNTING DISPLAY</h1>
+
+    <label for="input-number">Enter a digit:</label>
+    <input type="number" id="input-number" name="input-number" required>
+
+    <button type="button" onclick="countDigits()">Count Digits</button>
+
+    <div id="result-container">
+      <p id="digit-count-label">Number of Digits:</p>
+      <p id="digit-count-value">0</p>
+    </div>
+  </div>
+
+  <script>
+    function countDigits() {
+      const inputNumber = document.getElementById('input-number');
+      const digitCountLabel = document.getElementById('digit-count-label');
+      const digitCountValue = document.getElementById('digit-count-value');
+
+      const number = parseInt(inputNumber.value);
+      const digitCount = number.toString().length;
+
+      digitCountLabel.textContent = 'Number of Digits:';
+      digitCountValue.textContent = digitCount;
+    }
+  </script>
+</body>
+
+</html>
